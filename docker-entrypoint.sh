@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 if [ "$1" = 'asadmin' ]; then
     if [ "$AS_ADMIN_PASSWORD" ]; then
         echo "AS_ADMIN_PASSWORD=" > /tmp/glassfishpwd
