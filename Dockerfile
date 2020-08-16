@@ -1,3 +1,5 @@
+
+
 FROM openjdk:7u151-jdk-alpine
 
 # Set environment variables
@@ -8,7 +10,7 @@ ENV GLASSFISH_PKG=/tmp/glassfish-3.1.2.2.zip \
     PATH=$PATH:/usr/local/glassfish3/bin
 
 # Download and install GlassFish
-RUN curl -L -o  $GLASSFISH_PKG $GLASSFISH_URL && \
+RUN wget -q -O $GLASSFISH_PKG $GLASSFISH_URL && \
     echo "$MD5 *$GLASSFISH_PKG" | md5sum -c - && \
     unzip -o $GLASSFISH_PKG -d /usr/local && \
     rm -f $GLASSFISH_PKG && \
@@ -27,7 +29,6 @@ WORKDIR /usr/local/glassfish3
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
 USER root  
 RUN    chmod -R 777  /usr/local/glassfish3/docker-entrypoint.sh
-
 ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
 
 # Start the GlassFish domain
