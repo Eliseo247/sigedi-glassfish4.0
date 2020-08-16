@@ -42,3 +42,4 @@ if [ "$1" = 'asadmin' ]; then
 fi
 
 exec "$@"
+
