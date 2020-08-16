@@ -27,11 +27,14 @@ WORKDIR /usr/local/glassfish3
 
 # Copy in and set the entrypoint
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
-USER root  
-RUN    chmod -R 777  /usr/local/glassfish3/docker-entrypoint.sh
-RUN useradd -ms /bin/bash exemple
-ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
 
+RUN chgrp -R 0 /usr/local/glassfish3 && \
+    chmod -R g=u /usr/local/glassfish3
+    
+    RUN chmod g=u /etc/passwd
+  
+ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
+USER 1001
 # Start the GlassFish domain
 CMD ["asadmin", "start-domain", "--verbose"]
 
