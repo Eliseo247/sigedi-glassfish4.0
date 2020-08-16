@@ -29,7 +29,7 @@ WORKDIR /usr/local/glassfish3
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
 USER root  
 RUN    chmod -R 777  /usr/local/glassfish3/docker-entrypoint.sh
-USER root 
+RUN useradd -ms /bin/bash exemple
 ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
 
 # Start the GlassFish domain
