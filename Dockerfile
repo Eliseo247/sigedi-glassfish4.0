@@ -27,7 +27,7 @@ WORKDIR /usr/local/glassfish3
 
 # Copy in and set the entrypoint
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
-
+RUN chmod 777 /usr/local/glassfish3/docker-entrypoint.sh
 RUN chgrp -R 0 /usr/local/glassfish3 && \
     chmod -R g=u /usr/local/glassfish3
     
