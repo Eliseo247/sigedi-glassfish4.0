@@ -48,7 +48,7 @@ RUN chmod 777 -R /usr/local/glassfish3
 ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
 USER 1001
 # Start the GlassFish domain
-CMD ["asadmin", "start-domain", "--verbose"]
+CMD         asadmin start-domain --verbose
 
 LABEL maintainer="King Chung Huang <kchuang@ucalgary.ca>" \
       org.label-schema.schema-version="1.0" \
