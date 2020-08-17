@@ -12,7 +12,7 @@ RUN  rm -rf /var/lib/apt/lists/*
 USER root
 RUN curl -L -o /tmp/glassfish-3.1.zip https://download.oracle.com/glassfish/3.1.2/release/glassfish-3.1.2.zip && \
     unzip /tmp/glassfish-3.1.zip -d /usr/local && \
-    unzip /tmp/glassfish-3.1.zip -d /opt && \
+    #unzip /tmp/glassfish-3.1.zip -d /opt && \
   
   
    rm -f $GLASSFISH_PKG && \
@@ -23,8 +23,8 @@ RUN curl -L -o /tmp/glassfish-3.1.zip https://download.oracle.com/glassfish/3.1.
     find . -name '*.exe' -delete
 
 
-#VOLUME /usr/local/glassfish3
-#VOLUME /home/Digitalizados
+VOLUME /usr/local/glassfish3
+VOLUME /home/Digitalizados
 # Ports being exposed
 EXPOSE 4848 8080 8181
 
