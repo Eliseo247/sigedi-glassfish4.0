@@ -1,5 +1,5 @@
 FROM  openjdk-8-rhel8:latest
-#USER root
+USER root
 #RUN chmod 777 /usr/lib/jvm/
 #ENV JAVA_HOME /usr/lib/jvm/java-1.8.0
 ENV GLASSFISH_HOME /usr/local/glassfish3
@@ -13,6 +13,8 @@ USER root
 RUN curl -L -o /tmp/glassfish-3.1.zip https://download.oracle.com/glassfish/3.1.2/release/glassfish-3.1.2.zip && \
     unzip /tmp/glassfish-3.1.zip -d /usr/local && \
     unzip /tmp/glassfish-3.1.zip -d /opt && \
+     rm -f /tmp/glassfish-3.1.zip
+    
   
   
    #rm -f $GLASSFISH_PKG && \
@@ -23,8 +25,8 @@ RUN curl -L -o /tmp/glassfish-3.1.zip https://download.oracle.com/glassfish/3.1.
     find . -name '*.exe' -delete
 
 
-VOLUME /usr/local/glassfish3
-VOLUME /home/Digitalizados
+#VOLUME /usr/local/glassfish3
+#VOLUME /home/Digitalizados
 # Ports being exposed
 EXPOSE 4848 8080 8181
 
@@ -33,7 +35,7 @@ WORKDIR /usr/local/glassfish3
 # Copy in and set the entrypoint
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
 USER root
-RUN chmod 777 /usr/local/glassfish3/docker-entrypoint.sh
+RUN chmod 777 -R /usr/local/glassfish3
 RUN chgrp -R 0 /usr/local/glassfish3 && \
     chmod -R g=u /usr/local/glassfish3
     
