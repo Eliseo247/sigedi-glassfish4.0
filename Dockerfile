@@ -38,7 +38,7 @@ RUN chgrp -R 0 /usr/local/glassfish3 && \
     
 RUN chmod g=u /etc/passwd
   
-ENTRYPOINT ["/usr/local/glassfish4/docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
 USER 1001
 # Start the GlassFish domain
 CMD ["asadmin", "start-domain", "--verbose"]
@@ -48,4 +48,4 @@ LABEL maintainer="King Chung Huang <josue.ramriez@ansp.edu.sv>" \
       org.label-schema.name="GlassFish" \
       org.label-schema.version="3.1" \
       org.label-schema.url="https://glassfish.java.net" \
-      org.label-schema.vcs-url="https://github.com/Eliseo247/glassfish41.git"
+      org.label-schema.vcs-url="https://github.com/Eliseo247/glassfish.git"
