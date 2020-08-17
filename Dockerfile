@@ -57,4 +57,4 @@ LABEL maintainer="King Chung Huang <kchuang@ucalgary.ca>" \
       org.label-schema.name="GlassFish" \
       org.label-schema.version="3.1.2.2" \
       org.label-schema.url="https://glassfish.java.net" \
-      org.label-schema.vcs-url="https://github.com/ucalgary/docker-glassfish"
+      org.label-schema.vcs-url="https://github.com/Eliseo247/infosweb-glassfish3.1.git"
