@@ -8,7 +8,7 @@ ENV GLASSFISH_PKG=/tmp/glassfish-3.1.2.2.zip \
     PATH=$PATH:/usr/local/glassfish3/bin
 
 # Download and install GlassFish
-RUN         curl -L -o /tmp/glassfish-4.1.zip https://download.oracle.com/glassfish/3.1.2/release/glassfish-3.1.2.zip && \
+RUN         curl -L -o /tmp/glassfish-3.1.2.zip https://download.oracle.com/glassfish/3.1.2/release/glassfish-3.1.2.zip && \
             unzip /tmp/glassfish-3.1.2.zip -d /usr/local && \
              unzip /tmp/glassfish-3.1.2.zip -d /opt && \
             rm -f /tmp/glassfish-3.1.2.zip
