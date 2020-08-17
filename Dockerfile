@@ -13,9 +13,9 @@ RUN wget https://download.oracle.com/glassfish/3.1.2/release/glassfish-3.1.2.zip
          rm -f /glassfish-3.1.2.zip
     \
     # Remove Windows .bat and .exe files to save space
-    cd $GLASSFISH_HOME && \
-    find . -name '*.bat' -delete && \
-    find . -name '*.exe' -delete
+   # cd $GLASSFISH_HOME && \
+   # find . -name '*.bat' -delete && \
+   # find . -name '*.exe' -delete
 
 # Ports being exposed
 EXPOSE 4848 8080 8181
