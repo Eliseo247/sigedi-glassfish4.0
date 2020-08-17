@@ -7,7 +7,9 @@
 
 
 
-FROM openjdk:7u151-jdk-alpine
+#FROM openjdk:7u151-jdk-alpine
+  
+FROM openjdk-8-rhel8:latest
 
 
 # Set environment variables
