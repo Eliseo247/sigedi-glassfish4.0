@@ -23,7 +23,7 @@ RUN curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/rel
     find . -name '*.exe' -delete
 
 
-
+VOLUME /usr/local/glassfish4
 # Ports being exposed
 EXPOSE 4848 8080 8181
 
