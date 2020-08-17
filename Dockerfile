@@ -10,7 +10,7 @@ USER root
 RUN          rm -rf /var/lib/apt/lists/*
 
 USER root
-RUN         curl -L -o /tmp/glassfish-4.1.zip https://download.oracle.com/glassfish/3.1.2/release/glassfish-3.1.2.zip && \
+RUN         curl -L -o /tmp/glassfish-3.1.zip https://download.oracle.com/glassfish/3.1.2/release/glassfish-3.1.2.zip && \
             unzip /tmp/glassfish-3.1.zip -d /usr/local && \
              unzip /tmp/glassfish-3.1.zip -d /opt && \
             rm -f /tmp/glassfish-3.1.zip
