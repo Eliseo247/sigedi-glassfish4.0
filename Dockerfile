@@ -20,8 +20,9 @@ ENV         JAVA_HOME         /usr/lib/jvm/java-1.8.0
 ENV GLASSFISH_PKG=/tmp/glassfish-3.1.2.2.zip \
     GLASSFISH_URL=http://download.oracle.com/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip \
     GLASSFISH_HOME=/usr/local/glassfish3 \
-    MD5=ae8e17e9dcc80117cb4b39284302763f \
-    $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
+    MD5=ae8e17e9dcc80117cb4b3928430
+ ENV PATH  $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
+    #$PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
     #PATH=$PATH:/usr/local/glassfish3/bin
 
 # Download and install GlassFish
