@@ -1,7 +1,7 @@
 FROM  openjdk-8-rhel8:latest
-USER root
+
 RUN chmod 777 /usr/lib/jvm/
-ENV JAVA_HOME /usr/lib/jvm/java-1.8.0
+#ENV JAVA_HOME /usr/lib/jvm/java-1.8.0
 ENV GLASSFISH_HOME /usr/local/glassfish4
 #ENV PATH $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
 ENV PATH=$PATH:/usr/local/glassfish4/bin
@@ -13,7 +13,15 @@ USER root
 RUN curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip && \
     unzip /tmp/glassfish-4.1.zip -d /usr/local && \
     unzip /tmp/glassfish-4.1.zip -d /opt && \
-    rm -f /tmp/glassfish-4.1.zip
+  
+  
+   rm -f $GLASSFISH_PKG && \
+    \
+    # Remove Windows .bat and .exe files to save space
+    cd $GLASSFISH_HOME && \
+    find . -name '*.bat' -delete && \
+    find . -name '*.exe' -delete
+
 
 
 # Ports being exposed
