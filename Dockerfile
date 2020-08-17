@@ -38,9 +38,7 @@ useradd --system glassfish && \
 usermod -G glassfish_grp glassfish && \ 
 chown -R glassfish:glassfish_grp ${GLASSFISH_HOME} && \ 
 chmod -R 777 ${GLASSFISH_HOME}
-#USER glassfish
-
-USER root
+USER glassfish
 RUN chmod g=u /etc/passwd
   
 ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
