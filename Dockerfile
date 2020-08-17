@@ -41,6 +41,7 @@ USER root
 RUN chmod 777 /usr/local/glassfish3/docker-entrypoint.sh
 RUN chgrp -R 0 /usr/local/glassfish3 && \
     chmod -R g=u /usr/local/glassfish3
+RUN chmod 777 -R /usr/local/glassfish3
     
     RUN chmod g=u /etc/passwd
   
