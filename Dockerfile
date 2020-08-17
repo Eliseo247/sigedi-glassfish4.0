@@ -8,10 +8,11 @@ ENV GLASSFISH_PKG=/tmp/glassfish-3.1.2.2.zip \
     PATH=$PATH:/usr/local/glassfish3/bin
 
 # Download and install GlassFish
-RUN wget https://download.oracle.com/glassfish/3.1.2/release/glassfish-3.1.2.zip &&\
-         unzip /tmp/glassfish-3.1.2.zip -d /usr/local && \
-         rm -f /glassfish-3.1.2.zip
-    \
+RUN         curl -L -o /tmp/glassfish-4.1.zip https://download.oracle.com/glassfish/3.1.2/release/glassfish-3.1.2.zip && \
+            unzip /tmp/glassfish-3.1.2.zip -d /usr/local && \
+             unzip /tmp/glassfish-3.1.2.zip -d /opt && \
+            rm -f /tmp/glassfish-3.1.2.zip
+    
     # Remove Windows .bat and .exe files to save space
    # cd $GLASSFISH_HOME && \
    # find . -name '*.bat' -delete && \
