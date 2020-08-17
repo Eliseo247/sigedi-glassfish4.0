@@ -1,11 +1,4 @@
-#GlassFish Server Open Source Edition 3.1.2 (build 23)
-#-----------------------------RECORDAR CREAR LAS VARIABLES DE ENTORNO--------------
-#AS_ADMIN_PASSWORD  Gla$fish2020
-#AS_ADMIN_ENABLE_SECURE
-#100GB /home/Digitalizados
-#10GB /usr/local/glassfish3
-FROM openjdk:7u151-jdk-alpine
-
+FROM openjdk-8-rhel8:latest
 
 # Set environment variables
 ENV GLASSFISH_PKG=/tmp/glassfish-3.1.2.2.zip \
@@ -15,7 +8,7 @@ ENV GLASSFISH_PKG=/tmp/glassfish-3.1.2.2.zip \
     PATH=$PATH:/usr/local/glassfish3/bin
 
 # Download and install GlassFish
-RUN wget -q -O $GLASSFISH_PKG $GLASSFISH_URL && \
+RUN curl -L o $GLASSFISH_PKG $GLASSFISH_URL && \
     echo "$MD5 *$GLASSFISH_PKG" | md5sum -c - && \
     unzip -o $GLASSFISH_PKG -d /usr/local && \
     rm -f $GLASSFISH_PKG && \
@@ -32,6 +25,7 @@ WORKDIR /usr/local/glassfish3
 
 # Copy in and set the entrypoint
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
+USER root
 RUN chmod 777 /usr/local/glassfish3/docker-entrypoint.sh
 RUN chgrp -R 0 /usr/local/glassfish3 && \
     chmod -R g=u /usr/local/glassfish3
