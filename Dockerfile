@@ -1,11 +1,13 @@
-FROM openjdk-8-rhel8:latest
+FROM        openjdk-8-rhel8:latest
 
-# Set environment variables
-ENV 
-   
-    GLASSFISH_HOME=/opt/glassfish4 \
- 
-    PATH=$PATH:/opt/glassfish4/bin
+USER root
+RUN chmod 777 /usr/lib/jvm/
+ENV         JAVA_HOME         /usr/lib/jvm/java-1.8.0
+ENV         GLASSFISH_HOME    /opt/glassfish4
+ENV         PATH              $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
+
+USER root
+RUN          rm -rf /var/lib/apt/lists/*
 
 # Download and install GlassFish
 USER root
