@@ -1,26 +1,28 @@
 FROM  openjdk-8-rhel8:latest
 
-# Set environment variables
-ENV GLASSFISH_PKG=/tmp/glassfish-3.1.2.2.zip \
-    GLASSFISH_URL=http://download.oracle.com/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip \
-    GLASSFISH_HOME=/usr/local/glassfish3 \
-    MD5=ae8e17e9dcc80117cb4b39284302763f \
-    PATH=$PATH:/usr/local/glassfish3/bin
+USER root
+RUN chmod 777 /usr/lib/jvm/
+ENV         JAVA_HOME         /usr/lib/jvm/java-1.8.0
+ENV         GLASSFISH_HOME    /usr/local/glassfish3
+ENV         PATH              $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
+
+    
 
 # Download and install GlassFish
           
-RUN curl -L -o $GLASSFISH_PKG $GLASSFISH_URL && \
-    echo "$MD5 *$GLASSFISH_PKG" | md5sum -c - && \
-    unzip -o $GLASSFISH_PKG -d /usr/local && \
-    rm -f $GLASSFISH_PKG && \
-    \
-    # Remove Windows .bat and .exe files to save space
-    cd $GLASSFISH_HOME && \
-    find . -name '*.bat' -delete && \
-    find . -name '*.exe' -delete
+USER root
+RUN          rm -rf /var/lib/apt/lists/*
+
+USER root
+RUN         curl -L -o /tmp/glassfish-3.1.zip https://download.oracle.com/glassfish/3.1.2/release/glassfish-3.1.2.zip && \
+            unzip /tmp/glassfish-3.1.zip -d /usr/local && \
+             unzip /tmp/glassfish-3.1.zip -d /opt && \
+            rm -f /tmp/glassfish-3.1.zip
 
 # Ports being exposed
 EXPOSE 4848 8080 8181
+RUN chmod -R 777 /opt/glassfish3 && \
+            chmod -R 777  /usr/local/glassfish3
 
 WORKDIR /usr/local/glassfish3
 
@@ -28,15 +30,22 @@ WORKDIR /usr/local/glassfish3
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
 USER root
 RUN chmod 777 /usr/local/glassfish3/docker-entrypoint.sh
-RUN chgrp -R 0 /usr/local/glassfish3 && \
-    chmod -R g=u /usr/local/glassfish3
-    
-    RUN chmod g=u /etc/passwd
+
+
+RUN groupadd glassfish_grp && \
+useradd --system glassfish && \
+usermod -G glassfish_grp glassfish && \ 
+chown -R glassfish:glassfish_grp ${GLASSFISH_HOME} && \ 
+chmod -R 777 ${GLASSFISH_HOME}
+USER glassfish
+
+
+RUN chmod g=u /etc/passwd
   
 ENTRYPOINT ["/usr/local/glassfish3/docker-entrypoint.sh"]
-USER 1001
-# Start the GlassFish domain
-CMD ["asadmin", "start-domain", "--verbose"]
+# verbose causes the process to remain in the foreground so that docker can track it
+CMD         asadmin start-domain --verbose
+
 
 LABEL maintainer="King Chung Huang <kchuang@ucalgary.ca>" \
       org.label-schema.schema-version="1.0" \
