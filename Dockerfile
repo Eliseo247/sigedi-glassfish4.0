@@ -20,9 +20,9 @@ RUN curl -L -o /tmp/glassfish-3.1.zip https://download.oracle.com/glassfish/3.1.
    #rm -f $GLASSFISH_PKG && \
     #\
     # Remove Windows .bat and .exe files to save space
-    cd $GLASSFISH_HOME && \
-    find . -name '*.bat' -delete && \
-    find . -name '*.exe' -delete
+    #cd $GLASSFISH_HOME && \
+    #find . -name '*.bat' -delete && \
+    #find . -name '*.exe' -delete
 
 
 #VOLUME /usr/local/glassfish3
