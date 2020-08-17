@@ -48,4 +48,4 @@ LABEL maintainer="King Chung Huang <josue.ramriez@ansp.edu.sv>" \
       org.label-schema.name="GlassFish" \
       org.label-schema.version="3.1" \
       org.label-schema.url="https://glassfish.java.net" \
-      org.label-schema.vcs-url="https://github.com/Eliseo247/glassfish.git"
+      org.label-schema.vcs-url="https://github.com/Eliseo247/infosweb-glassfish3.1.git"
