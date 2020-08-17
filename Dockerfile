@@ -32,9 +32,9 @@ RUN         curl -L -o /tmp/glassfish-3.1.zip https://download.oracle.com/glassf
             rm -f /tmp/glassfish-3.1.zip
             
     # Remove Windows .bat and .exe files to save space
-    cd $GLASSFISH_HOME && \
-    find . -name '*.bat' -delete && \
-    find . -name '*.exe' -delete
+    #cd $GLASSFISH_HOME && \
+    #find . -name '*.bat' -delete && \
+    #find . -name '*.exe' -delete
 
 # Ports being exposed
 EXPOSE 4848 8080 8181
