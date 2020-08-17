@@ -43,7 +43,7 @@ USER 1001
 # Start the GlassFish domain
 CMD ["asadmin", "start-domain", "--verbose"]
 
-LABEL maintainer="King Chung Huang <josue.ramriez@ansp.edu.sv>" \
+LABEL maintainer="Josue Eliseo Ramirez <josue.ramriez@ansp.edu.sv>" \
       org.label-schema.schema-version="1.0" \
       org.label-schema.name="GlassFish" \
       org.label-schema.version="3.1" \
