@@ -45,6 +45,6 @@ CMD ["asadmin", "start-domain", "--verbose"]
 LABEL maintainer="King Chung Huang <josue.ramriez@ansp.edu.sv>" \
       org.label-schema.schema-version="1.0" \
       org.label-schema.name="GlassFish" \
-      org.label-schema.version="4.1" \
+      org.label-schema.version="3.1" \
       org.label-schema.url="https://glassfish.java.net" \
-      org.label-schema.vcs-url="https://github.com/Eliseo247/glassfish3"
+      org.label-schema.vcs-url="https://github.com/Eliseo247/glassfish41.git"
