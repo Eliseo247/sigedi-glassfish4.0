@@ -1,10 +1,11 @@
 FROM  openjdk-8-rhel8:latest
 
 USER root
-RUN chmod 777 /usr/lib/jvm/
-ENV         JAVA_HOME         /usr/lib/jvm/java-1.8.0
+#RUN chmod 777 /usr/lib/jvm/
+#ENV         JAVA_HOME         /usr/lib/jvm/java-1.8.0
 ENV         GLASSFISH_HOME    /usr/local/glassfish3
-ENV         PATH              $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
+ENV PATH=$PATH:/usr/local/glassfish3/bin
+#ENV      PATH              $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
 
     
 
