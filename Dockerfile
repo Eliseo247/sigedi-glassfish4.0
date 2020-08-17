@@ -18,7 +18,7 @@ RUN curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/rel
 # Ports being exposed
 EXPOSE 4848 8080 8181
 
-WORKDIR /usr/local/glassfish3
+WORKDIR /usr/local/glassfish4
 
 # Copy in and set the entrypoint
 COPY docker-entrypoint.sh $GLASSFISH_HOME/
