@@ -1,7 +1,7 @@
-GlassFish Server Open Source Edition 3.1.2 (build 23)
+#GlassFish Server Open Source Edition 3.1.2 (build 23)
 #-----------------------------RECORDAR CREAR LAS VARIABLES DE ENTORNO--------------
-AS_ADMIN_PASSWORD  Gla$fish2020
-AS_ADMIN_ENABLE_SECURE
+#AS_ADMIN_PASSWORD  Gla$fish2020
+#AS_ADMIN_ENABLE_SECURE
 #100GB /home/Digitalizados
 #10GB /usr/local/glassfish3
 
