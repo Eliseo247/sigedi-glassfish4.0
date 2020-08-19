@@ -23,7 +23,7 @@ RUN         curl -L -o /tmp/glassfish-4.1.zip https://download.oracle.com/glassf
 
 # Ports being exposed
 EXPOSE 4848 8080 8181
-
+VOLUME /home/digitalizados
 WORKDIR /opt/glassfish4
 
 # Copy in and set the entrypoint
