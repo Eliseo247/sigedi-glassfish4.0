@@ -2,19 +2,19 @@ FROM        openjdk-8-rhel8:latest
 
 USER root
 RUN chmod 777 /usr/lib/jvm/
-ENV         JAVA_HOME         /usr/lib/jvm/java-1.8.0
-ENV         GLASSFISH_HOME    /opt/glassfish4
-ENV         PATH              $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
+ENV         JAVA_HOME /usr/lib/jvm/java-1.8.0
+ENV         GLASSFISH_HOME /opt/glassfish4
+ENV         PATH  $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
 
 USER root
 RUN          rm -rf /var/lib/apt/lists/*
 
 # Download and install GlassFish
 USER root
-RUN         curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip && \
-            unzip /tmp/glassfish-4.1.zip -d /usr/local && \
-             unzip /tmp/glassfish-4.1.zip -d /opt && \
-            rm -f /tmp/glassfish-4.1.zip
+RUN         curl -L -o /tmp/glassfish-4.1.zip https://download.oracle.com/glassfish/4.0/release/glassfish-4.0.zip && \
+            unzip /tmp/glassfish-4.0.zip -d /usr/local && \
+            unzip /tmp/glassfish-4.0.zip -d /opt && \
+            rm -f /tmp/glassfish-4.0.zip
     
     # Remove Windows .bat and .exe files to save space
    # cd $GLASSFISH_HOME && \
@@ -40,9 +40,9 @@ USER 1001
 # Start the GlassFish domain
 CMD ["asadmin", "start-domain", "--verbose"]
 
-LABEL maintainer="King Chung Huang <kchuang@ucalgary.ca>" \
+LABEL maintainer="Josue Ramirez <josue.ramirez@ansp.edu.sv>" \
       org.label-schema.schema-version="1.0" \
       org.label-schema.name="GlassFish" \
-      org.label-schema.version="3.1.2.2" \
+      org.label-schema.version="4.0" \
       org.label-schema.url="https://glassfish.java.net" \
-      org.label-schema.vcs-url="https://github.com/ucalgary/docker-glassfish"
+      org.label-schema.vcs-url="https://github.com/Eliseo247/infosweb-glassfish4.1.git"
