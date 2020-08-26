@@ -34,7 +34,7 @@ if [ "$1" = 'asadmin' ]; then
         # Therefore, manually generate the .asadminpass file to "login".
         
         AS_ADMIN_PASSWORD_GFBASE64=`echo -n "$AS_ADMIN_PASSWORD" | base64`
-        echo "asadmin://admin@localhost:4848 $AS_ADMIN_PASSWORD_GFBASE64" > /root/.asadminpass && id
+       # echo "asadmin://admin@localhost:4848 $AS_ADMIN_PASSWORD_GFBASE64" > /root/.asadminpass && id
 su - exemple
         chmod 600 /root/.asadminpass && id
 su - exemple
