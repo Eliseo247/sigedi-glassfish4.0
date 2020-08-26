@@ -11,11 +11,11 @@ RUN          rm -rf /var/lib/apt/lists/*
 
 # Download and install GlassFish
 USER root
-RUN         curl -L -o /tmp/glassfish-4.0.zip https://download.oracle.com/glassfish/4.0/release/glassfish-4.0.zip && \
-            unzip /tmp/glassfish-4.0.zip -d /opt && \
-            rm -f /tmp/glassfish-4.0.zip
-    
-    # Remove Windows .bat and .exe files to save space
+######################################Descargar los binarios##################################3#
+ #RUN         curl -L -o /tmp/glassfish-4.0.zip https://download.oracle.com/glassfish/4.0/release/glassfish-4.0.zip && \
+ #           unzip /tmp/glassfish-4.0.zip -d /opt && \
+ #           rm -f /tmp/glassfish-4.0.zip
+   # Remove Windows .bat and .exe files to save space
    # cd $GLASSFISH_HOME && \
    # find . -name '*.bat' -delete && \
    # find . -name '*.exe' -delete
