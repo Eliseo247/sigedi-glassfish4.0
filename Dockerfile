@@ -12,7 +12,6 @@ RUN          rm -rf /var/lib/apt/lists/*
 # Download and install GlassFish
 USER root
 RUN         curl -L -o /tmp/glassfish-4.0.zip https://download.oracle.com/glassfish/4.0/release/glassfish-4.0.zip && \
-            unzip /tmp/glassfish-4.0.zip -d /usr/local && \
             unzip /tmp/glassfish-4.0.zip -d /opt && \
             rm -f /tmp/glassfish-4.0.zip
     
