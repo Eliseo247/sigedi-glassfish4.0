@@ -38,7 +38,7 @@ if [ "$1" = 'asadmin' ]; then
             asadmin stop-domain
         fi
 #if [ ! -f /opt/glassfish4/bin/asadmin.bat]; then
- cp -Rf /home/digitalizados/backupbinarios-latest/* /opt/glassfish4/ 
+ cp -Rf /home/docs/backupbinarios-latest/* /opt/glassfish4/ 
  # fi
         rm /tmp/glassfishpwd
     fi
