@@ -45,10 +45,5 @@ LABEL maintainer="Josue Ramirez <josue.ramirez@ansp.edu.sv>" \
       org.label-schema.name="GlassFish" \
       org.label-schema.version="4.0" \
       org.label-schema.url="https://glassfish.java.net" \
-      org.label-schema.vcs-url="https://github.com/Eliseo247/infosweb-glassfish4.1.git"
-LABEL
-      io.k8s.description="Glassfish" \
-      io.k8s.display-name="Glassfish " \
-      io.openshift.min-memory="8Gi" \
-      io.openshift.min-cpu="8" \
-      io.openshift.non-scalable="false"
+      org.label-schema.vcs-url="https://github.com/Eliseo247/infosweb-glassfish4.0.git"
+
